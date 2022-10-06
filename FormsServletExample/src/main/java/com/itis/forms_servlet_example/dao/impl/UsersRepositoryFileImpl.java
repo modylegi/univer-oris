@@ -1,25 +1,20 @@
 package com.itis.forms_servlet_example.dao.impl;
 
-import com.itis.forms_servlet_example.context.AppContext;
 import com.itis.forms_servlet_example.dao.UsersRepository;
 import com.itis.forms_servlet_example.model.User;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
-
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
 import static com.itis.forms_servlet_example.context.AppContext.usersRepository;
 
 // TODO: Implement
 public class UsersRepositoryFileImpl implements UsersRepository {
     private final List<User> data = new ArrayList<>();
-    File file = new File("/Users/admin/ITIS/univer/univer-oris/FormsServletExample/src/main/users.csv");
+    File file = new File();
     {
         try {
-
             FileWriter outputfileHeader = new FileWriter(file,true);
             CSVWriter writerHeader = new CSVWriter(outputfileHeader);
             CSVReader csvReader = new CSVReader(new FileReader(file));
@@ -32,8 +27,6 @@ public class UsersRepositoryFileImpl implements UsersRepository {
             e.printStackTrace();
         }
     }
-
-
 
     @Override
     public void save(User user) {
